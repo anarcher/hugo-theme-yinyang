@@ -22,7 +22,8 @@
                 {{ end }}
               </div>
               <div id="posts-list">
-                {{ range .Data.Pages.GroupByDate "2006" -}}
+                {{ $pages := where .Data.Pages "Type" "in" site.Params.mainSections -}}
+                {{ range $pages.GroupByDate "2006" -}}
                 <section>
                   <h1 class="site-date-catalog">{{ .Key }}</h1>
             
